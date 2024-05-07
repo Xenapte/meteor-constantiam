@@ -28,7 +28,7 @@ public class AutoElytraSpeed extends Module {
     private final Setting<Double> speedMultiplier = sgGeneral.add(new DoubleSetting.Builder()
         .name("speed-multiplier")
         .description("Speed multiplier with restrictions")
-        .defaultValue(0.912)
+        .defaultValue(0.9)
         .sliderRange(0.0, 1.0)
         .build()
     );
@@ -36,7 +36,7 @@ public class AutoElytraSpeed extends Module {
     private final Setting<Double> cutoffTps = sgGeneral.add(new DoubleSetting.Builder()
         .name("cutoff-tps")
         .description("Minimum TPS to restrict speed")
-        .defaultValue(8.0)
+        .defaultValue(9.5)
         .sliderRange(0.0, 20.0)
         .build()
     );
@@ -44,7 +44,7 @@ public class AutoElytraSpeed extends Module {
     private final Setting<Integer> refreshRate = sgGeneral.add(new IntSetting.Builder()
         .name("refresh-rate")
         .description("How often should we set the speed, measured in ticks")
-        .defaultValue(50)
+        .defaultValue(40)
         .sliderRange(10, 200)
         .build()
     );
@@ -70,7 +70,7 @@ public class AutoElytraSpeed extends Module {
     );
 
     public AutoElytraSpeed() {
-        super(Categories.Movement, "auto-elytra-speed", "Automatically changes elytrafly speed");
+        super(Categories.Movement, "auto-elytra-speed", "Automatically changes elytrafly speed according to the TPS.");
     }
 
     private int timeoutLeft = 0;
